@@ -1,2 +1,5 @@
 # Code Runner files
 *tempCodeRunnerFile.*
+
+# test files
+*.test.js
