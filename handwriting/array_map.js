@@ -20,7 +20,7 @@ Array.prototype.myMap = function (callback, thisArg) {
 Array.prototype.myMap = function (callback, thisArg) {
   // 类型检查
   if (typeof callback !== "function") {
-    throw TypeError(`${callback} is not a function`);
+    throw new TypeError(`${callback} is not a function`);
   }
 
   const arr = Object(this);
