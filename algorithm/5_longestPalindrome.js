@@ -12,7 +12,6 @@ var longestPalindrome = function (s) {
       right++;
     }
     const currLen = right - left - 1;
-    console.log(left, right, currLen);
     if (currLen > maxLen) {
       maxLen = currLen;
       maxStart = left + 1;
@@ -26,7 +25,6 @@ var longestPalindrome = function (s) {
     expand(i, i + 1);
   }
 
-  console.log(maxStart, maxLen);
   return s.slice(maxStart, maxStart + maxLen);
 };
 
