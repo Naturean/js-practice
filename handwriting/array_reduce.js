@@ -25,6 +25,8 @@ Array.prototype.myReduce = function (callback, initialValue) {
 
   const arr = Object(this);
   let res = initialValue;
+  // 不用initialValue !== undefined做判断，传入undefined作为初始值与没有初始值是两个不同的情况
+  // 这部分的验证可以见“测试用例10”
   let initialed = arguments.length >= 2;
 
   if (!initialed && !arr.length) {
@@ -105,3 +107,8 @@ console.log(arr8.reduce((acc, cur) => acc.concat(cur))); // 输出: [1, 2, 3, 4]
 const arr9 = Array.from({ length: 1000 }, (_, i) => i + 1);
 console.log(arr9.myReduce((acc, cur) => acc + cur, 0)); // 输出: 500500
 console.log(arr9.reduce((acc, cur) => acc + cur, 0)); // 输出: 500500
+
+// 传入undefined作为初始值
+const arr10 = [1, 2, 3];
+console.log(arr10.myReduce((acc, cur) => acc + cur, undefined)); // 输出: NaN
+console.log(arr10.reduce((acc, cur) => acc + cur, undefined)); // 输出: NaN
