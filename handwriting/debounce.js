@@ -26,6 +26,7 @@ function debounce(func, wait) {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
       func.apply(this, ...args);
+      timeoutId = null; // 避免内存泄漏
     }, wait);
   };
 }
@@ -49,10 +50,10 @@ function debounce(func, wait, immediate) {
       func.apply(this, ...args);
     }
     timeoutId = setTimeout(() => {
-      timeoutId = null;
       if (!immediate) {
         func.apply(this, ...args);
       }
+      timeoutId = null; // 避免内存泄漏
     }, wait);
   };
 }
